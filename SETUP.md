@@ -52,6 +52,7 @@ Now, install the Gitbook CLI tools.
 
 ```bash
 npm install gitbook-cli
+npm install mathjax-node-page
 ```
 
 ## Running the Textbook Locally
