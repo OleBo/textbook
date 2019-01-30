@@ -20,4 +20,4 @@ To set up the textbook for local development, see the [the setup guide][setup].
 [data8]: http://data8.org/
 [ds100]: http://www.ds100.org/
 [setup]: /SETUP.md
-[about]: /about_this_book
+[about]: /about_this_book.md
