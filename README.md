@@ -19,5 +19,5 @@ To set up the textbook for local development, see the [the setup guide][setup].
 [deb]: https://www.stat.berkeley.edu/~nolan/
 [data8]: http://data8.org/
 [ds100]: http://www.ds100.org/
-[setup]: https://github.com/DS-100/textbook/blob/master/SETUP.md
+[setup]: https://github.com/OleBo/textbook/blob/master/SETUP.md
 [about]: /about_this_book
