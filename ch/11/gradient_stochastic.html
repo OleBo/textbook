@@ -87,9 +87,10 @@ next_page: '/ch/12/prob_and_gen.html'
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent<a class="anchor-link" href="#Stochastic-Gradient-Descent">&#182;</a></h2><p>In this section, we discuss a modification to gradient descent that makes it much more useful for large datasets. The modified algorithm is called <strong>stochastic gradient descent</strong>.</p>
 <p>Recall gradient descent updates our model parameter $ \theta $ by using the gradient of our chosen loss function. Specifically, we used this gradient update formula:</p>
-$$
+<p>$$
 {\theta}^{(t+1)} = \theta^{(t)} - \alpha \cdot \nabla_{\theta} L(\theta^{(t)}, \textbf{y})
-$$<p>In this equation:</p>
+$$</p>
+<p>In this equation:</p>
 <ul>
 <li>$\theta^{(t)}$ is our current estimate of $\theta^*$ at the $t$th iteration</li>
 <li>$\alpha$ is the learning rate</li>
@@ -112,17 +113,20 @@ $$<p>In this equation:</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent<a class="anchor-link" href="#Stochastic-Gradient-Descent">&#182;</a></h3><p>To circumvent the difficulty of computing a gradient across the entire training set, stochastic gradient descent approximates the overall gradient using <strong>a single randomly chosen data point</strong>. Since the observation is chosen randomly, we expect that using the gradient at each individual observation will eventually converge to the same parameters as batch gradient descent.</p>
 <p>Consider once again the formula for batch gradient descent:</p>
-$$
+<p>$$
 {\theta}^{(t+1)} = \theta^{(t)} - \alpha \cdot \nabla_{\theta} L(\theta^{(t)}, \textbf{y})
-$$<p>In this formula, we have the term $\nabla_{\theta} L(\theta^{(t)}, \textbf{y})$, the average gradient of the loss function across all points in the training set. That is:</p>
-$$
+$$</p>
+<p>In this formula, we have the term $\nabla_{\theta} L(\theta^{(t)}, \textbf{y})$, the average gradient of the loss function across all points in the training set. That is:</p>
+<p>$$
 \begin{aligned}
 \nabla_{\theta} L(\theta^{(t)}, \textbf{y}) &amp;= \frac{1}{n} \sum_{i=1}^{n} \nabla_{\theta} \ell(\theta^{(t)}, y_i)
 \end{aligned}
-$$<p>Where $ \ell(\theta, y_i) $ is the loss at a single point in the training set. To conduct stochastic gradient descent, we simply replace the average gradient with the gradient at a single point. The gradient update formula for stochastic gradient descent is:</p>
-$$
+$$</p>
+<p>Where $ \ell(\theta, y_i) $ is the loss at a single point in the training set. To conduct stochastic gradient descent, we simply replace the average gradient with the gradient at a single point. The gradient update formula for stochastic gradient descent is:</p>
+<p>$$
 {\theta}^{(t+1)} = \theta^{(t)} - \alpha \cdot \nabla_{\theta} \ell(\theta^{(t)}, y_i)
-$$<p>In this formula, $ y_i $ is chosen randomly from $ \textbf{y} $. Note that choosing the points randomly is critical to the success of stochastic gradient descent! If the points are not chosen randomly, stochastic gradient descent may produce significantly worse results than batch gradient descent.</p>
+$$</p>
+<p>In this formula, $ y_i $ is chosen randomly from $ \textbf{y} $. Note that choosing the points randomly is critical to the success of stochastic gradient descent! If the points are not chosen randomly, stochastic gradient descent may produce significantly worse results than batch gradient descent.</p>
 <p>We most commonly run stochastic gradient descent by shuffling the data points and using each one in its shuffled order until one complete pass through the training data is completed. If the algorithm hasn't converged, we reshuffle the points and run another pass through the data. Each <strong>iteration</strong> of stochastic gradient descent looks at one data point; each complete pass through the data is called an <strong>epoch</strong>.</p>
 
 </div>
@@ -131,34 +135,39 @@ $$<p>In this formula, $ y_i $ is chosen randomly from $ \textbf{y} $. Note that 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Using-the-MSE-Loss">Using the MSE Loss<a class="anchor-link" href="#Using-the-MSE-Loss">&#182;</a></h4><p>As an example, we derive the stochastic gradient descent update formula for the mean squared loss. Recall the definition of the mean squared loss:</p>
-$$
+<p>$$
 \begin{aligned}
 L(\theta, \textbf{y})
 &amp;= \frac{1}{n} \sum_{i = 1}^{n}(y_i - \theta)^2
 \end{aligned}
-$$<p>Taking the gradient with respect to $ \theta $, we have:</p>
-$$
+$$</p>
+<p>Taking the gradient with respect to $ \theta $, we have:</p>
+<p>$$
 \begin{aligned}
 \nabla_{\theta}  L(\theta, \textbf{y})
 &amp;= \frac{1}{n} \sum_{i = 1}^{n} -2(y_i - \theta)
 \end{aligned}
-$$<p>Since the above equation gives us the average gradient loss across all points in the dataset, the gradient loss on a single point is simply the piece of the equation that is being averaged:</p>
-$$
+$$</p>
+<p>Since the above equation gives us the average gradient loss across all points in the dataset, the gradient loss on a single point is simply the piece of the equation that is being averaged:</p>
+<p>$$
 \begin{aligned}
 \nabla_{\theta}  \ell(\theta, y_i)
 &amp;= -2(y_i - \theta)
 \end{aligned}
-$$<p>Thus, the batch gradient update rule for the MSE loss is:</p>
-$$
+$$</p>
+<p>Thus, the batch gradient update rule for the MSE loss is:</p>
+<p>$$
 \begin{aligned}
 {\theta}^{(t+1)} = \theta^{(t)} - \alpha \cdot \left( \frac{1}{n} \sum_{i = 1}^{n} -2(y_i - \theta) \right)
 \end{aligned}
-$$<p>And the stochastic gradient update rule is:</p>
-$$
+$$</p>
+<p>And the stochastic gradient update rule is:</p>
+<p>$$
 \begin{aligned}
 {\theta}^{(t+1)} = \theta^{(t)} - \alpha \cdot \left( -2(y_i - \theta) \right)
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
@@ -239,9 +248,10 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Mini-batch-Gradient-Descent">Mini-batch Gradient Descent<a class="anchor-link" href="#Mini-batch-Gradient-Descent">&#182;</a></h3><p><strong>Mini-batch gradient descent</strong> strikes a balance between batch gradient descent and stochastic gradient descent by increasing the number of observations that we select at each iteration. In mini-batch gradient descent, we use a few data points for each gradient update instead of a single point.</p>
 <p>We use the average of the gradients of their loss functions to construct an estimate of the true gradient of the cross entropy loss. If $\mathcal{B}$ is the mini-batch of data points that we randomly sample from the $n$ observations, the following approximation holds.</p>
-$$
+<p>$$
 \nabla_\theta L(\theta, \textbf{y}) \approx \frac{1}{|\mathcal{B}|} \sum_{i\in\mathcal{B}}\nabla_{\theta}\ell(\theta, y_i)
-$$<p>As with stochastic gradient descent, we perform mini-batch gradient descent by shuffling our training data and selecting mini-batches by iterating through the shuffled data. After each epoch, we re-shuffle our data and select new mini-batches.</p>
+$$</p>
+<p>As with stochastic gradient descent, we perform mini-batch gradient descent by shuffling our training data and selecting mini-batches by iterating through the shuffled data. After each epoch, we re-shuffle our data and select new mini-batches.</p>
 <p>While we have made the distinction between stochastic and mini-batch gradient descent in this textbook, stochastic gradient descent is sometimes used as an umbrella term that encompasses the selection of a mini-batch of any size.</p>
 <h4 id="Selecting-the-Mini-Batch-Size">Selecting the Mini-Batch Size<a class="anchor-link" href="#Selecting-the-Mini-Batch-Size">&#182;</a></h4><p>Mini-batch gradient descent is most optimal when running on a Graphical Processing Unit (GPU) chip found in some computers. Since computations on these types of hardware can be executed in parallel, using a mini-batch can increase the accuracy of the gradient without increasing computation time. Depending on the memory of the GPU, the mini-batch size is often set between 10 and 100 observations.</p>
 <h3 id="Defining-a-Function-for-Mini-Batch-Gradient-Descent">Defining a Function for Mini-Batch Gradient Descent<a class="anchor-link" href="#Defining-a-Function-for-Mini-Batch-Gradient-Descent">&#182;</a></h3><p>A function for mini-batch gradient descent requires the ability to select a batch size. Below is a function that implements this feature.</p>

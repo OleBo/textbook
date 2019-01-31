@@ -201,7 +201,8 @@ next_page: '/ch/13/linear_case_study.html'
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Like we did with the tips dataset, let's start with the constant model: the model that only ever predicts a single number.</p>
-$$ \theta = C$$<p>Thus, we are working with just the $y$-values.</p>
+<p>$$ \theta = C$$</p>
+<p>Thus, we are working with just the $y$-values.</p>
 
 </div>
 </div>
@@ -232,7 +233,8 @@ $$ \theta = C$$<p>Thus, we are working with just the $y$-values.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our goal is to find the $ \theta $ that results in the line that minimizes the squared loss:</p>
-$$ L(\theta, \textbf{y}) = \sum_{i = 1}^{n}(y_i - \theta)^2\\ $$<p>Recall that for the constant model, the minimizing $\theta$ for MSE is $\bar{\textbf{y}}$, the average of the $\textbf{y}$ values. The calculus derivation can be found in the Loss Functions lesson in the Modeling and Estimations chapter. For the linear algebra derivation, please refer to the Vector Space Review in the Appendix.</p>
+<p>$$ L(\theta, \textbf{y}) = \sum_{i = 1}^{n}(y_i - \theta)^2\\ $$</p>
+<p>Recall that for the constant model, the minimizing $\theta$ for MSE is $\bar{\textbf{y}}$, the average of the $\textbf{y}$ values. The calculus derivation can be found in the Loss Functions lesson in the Modeling and Estimations chapter. For the linear algebra derivation, please refer to the Vector Space Review in the Appendix.</p>
 
 </div>
 </div>
@@ -240,16 +242,17 @@ $$ L(\theta, \textbf{y}) = \sum_{i = 1}^{n}(y_i - \theta)^2\\ $$<p>Recall that f
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice that our loss function is a sum of squares. The <em>L2</em>-norm for a vector is also a sum of squares, but with a square root:</p>
-$$\Vert \textbf{v} \Vert = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$$<p></p>
+<p>$$\Vert \textbf{v} \Vert = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$$</p>
 <p>If we let $y_i - \theta = v_i$:</p>
-$$
+<p>$$
 \begin{aligned}
 L(\theta, \textbf{y}) 
 &amp;= v_1^2 + v_2^2 + \dots + v_n^2 \\
 &amp;= \Vert \textbf{v} \Vert^2
 \end{aligned}
-$$<p>This means our loss can be expressed as the <em>L2</em>-norm of some vector $\textbf{v}$, squared. We can express $v_i$ as $y_i - \theta \quad \forall i \in [1,n]$ so that in Cartesian notation,</p>
-$$
+$$</p>
+<p>This means our loss can be expressed as the <em>L2</em>-norm of some vector $\textbf{v}$, squared. We can express $v_i$ as $y_i - \theta \quad \forall i \in [1,n]$ so that in Cartesian notation,</p>
+<p>$$
 \begin{aligned}
 \textbf{v} \quad &amp;= \quad \begin{bmatrix} y_1 - \theta \\ y_2 - \theta \\ \vdots \\ y_n - \theta \end{bmatrix} \\
 &amp;= \quad \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n  \end{bmatrix} \quad - \quad 
@@ -257,8 +260,9 @@ $$
 &amp;= \quad \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n  \end{bmatrix} \quad - \quad 
 \theta \begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}
 \end{aligned}
-$$<p>So our loss function can be written as:</p>
-$$ 
+$$</p>
+<p>So our loss function can be written as:</p>
+<p>$$ 
 \begin{aligned}
 L(\theta, \textbf{y})
 \quad &amp;= \quad \left \Vert  \qquad   
@@ -271,7 +275,8 @@ L(\theta, \textbf{y})
 \hat{\textbf{y}}
 \qquad \right \Vert ^2 \\
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
@@ -290,13 +295,14 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Least-Squares:-Simple-Linear-Model">Least Squares: Simple Linear Model<a class="anchor-link" href="#Least-Squares:-Simple-Linear-Model">&#182;</a></h3><p>Now, let's look at the simple linear regression model. This is strongly parallel to the constant model derivation, but be mindful of the differences and think about how you might generalize to multiple linear regression.</p>
 <p>The simple linear model is:</p>
-$$
+<p>$$
 \begin{aligned}
 f_\boldsymbol\theta (x_i) 
 &amp;= \theta_0 + \theta_1 x_i \\
 \end{aligned}
-$$<p>Our goal is to find the $\boldsymbol\theta$ that results in the line with the least squared error:</p>
-$$
+$$</p>
+<p>Our goal is to find the $\boldsymbol\theta$ that results in the line with the least squared error:</p>
+<p>$$
 \begin{aligned}
 L(\boldsymbol\theta, \textbf{x}, \textbf{y})
 &amp;= \sum_{i = 1}^{n}(y_i - f_\boldsymbol\theta (x_i))^2\\
@@ -307,14 +313,15 @@ L(\boldsymbol\theta, \textbf{x}, \textbf{y})
      \theta_1
 \end{bmatrix} ) ^2
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To help us visualize the translation of our loss summation into matrix form, let's expand out the loss with $n = 3$.</p>
-$$
+<p>$$
 \begin{aligned}
 L(\boldsymbol{\theta}, \textbf{x}, \textbf{y})
 &amp;=
@@ -336,31 +343,33 @@ L(\boldsymbol{\theta}, \textbf{x}, \textbf{y})
      \theta_1
 \end{bmatrix})^2 \\
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Again, our loss function is a sum of squares and the <em>L2</em>-norm for a vector is the square root of a sum of squares:</p>
-$$\Vert \textbf{v} \Vert = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$$<p></p>
+<p>$$\Vert \textbf{v} \Vert = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$$</p>
 <p>If we let $y_i - \begin{bmatrix} 1 &amp; x_i \end{bmatrix}
 \begin{bmatrix} 
      \theta_0 \\
      \theta_1
 \end{bmatrix} = v_i$:</p>
-$$
+<p>$$
 \begin{aligned}
 L(\boldsymbol{\theta}, \textbf{x}, \textbf{y}) 
 &amp;= v_1^2 + v_2^2 + \dots + v_n^2 \\
 &amp;= \Vert \textbf{v} \Vert^2
 \end{aligned}
-$$<p>As before, our loss can be expressed as the <em>L2</em>-norm of some vector $\textbf{v}$, squared. With each component $v_i = y_i - \begin{bmatrix} 1 &amp; x_i \end{bmatrix}
+$$</p>
+<p>As before, our loss can be expressed as the <em>L2</em>-norm of some vector $\textbf{v}$, squared. With each component $v_i = y_i - \begin{bmatrix} 1 &amp; x_i \end{bmatrix}
 \begin{bmatrix} 
      \theta_0 \\
      \theta_1
 \end{bmatrix} \quad \forall i \in [1,3]$:</p>
-$$ 
+<p>$$ 
 \begin{aligned}
 L(\boldsymbol{\theta}, \textbf{x}, \textbf{y})
 &amp;= \left \Vert  \qquad   
@@ -391,7 +400,8 @@ f_\boldsymbol\theta(\textbf{x})
 \hat{\textbf{y}}
 \qquad \right \Vert ^2 \\
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
@@ -417,11 +427,12 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As a reminder, here is our loss function and scatter plot:</p>
-$$L(\boldsymbol{\theta}, \textbf{x}, \textbf{y}) \quad = \quad \left \Vert  \quad  
+<p>$$L(\boldsymbol{\theta}, \textbf{x}, \textbf{y}) \quad = \quad \left \Vert  \quad  
 \textbf{y} 
 \quad - \quad 
 \textbf{X} \boldsymbol\theta
-\quad \right \Vert ^2$$
+\quad \right \Vert ^2$$</p>
+
 </div>
 </div>
 </div>
@@ -494,10 +505,14 @@ $$L(\boldsymbol{\theta}, \textbf{x}, \textbf{y}) \quad = \quad \left \Vert  \qua
 <li>$\hat{\textbf{y}} = \textbf{X} \hat{\boldsymbol\theta}$ is the vector closest to $\textbf{y}$ in the vector space spanned by $\textbf{x}$ and $\textbf{1}$</li>
 </ul>
 <p>Thus, we arrive at the equation:</p>
-$$\textbf{X}  \hat{\boldsymbol\theta} + \textbf{e} = \textbf{y}$$<p>Left-multiplying both sides by $\textbf{X}^T$:</p>
-$$\textbf{X}^T \textbf{X}  \hat{\boldsymbol\theta} + \textbf{X}^T \textbf{e} = \textbf{X}^T \textbf{y}$$<p>Since $\textbf{e}$ is perpendicular to the columns of $\textbf{X}$, $\textbf{X}^T \textbf{e}$ is a column vector of $0$'s. Thus, we arrive at the Normal Equation:</p>
-$$\textbf{X}^T \textbf{X}  \hat{\boldsymbol\theta} = \textbf{X}^T \textbf{y}$$<p>From here, we can easily solve for $\hat{\boldsymbol\theta}$ by left-multiplying both sides by $(\textbf{X}^T \textbf{X})^{-1}$:</p>
-$$\hat{\boldsymbol\theta} = (\textbf{X}^T \textbf{X})^{-1} \textbf{X}^T \textbf{y}$$<p>Note: we can get this same solution by minimizing with vector calculus, but in the case of least squares loss, vector calculus isn't necessary. For other loss functions, we will need to use vector calculus to get the analytic solution.</p>
+<p>$$\textbf{X}  \hat{\boldsymbol\theta} + \textbf{e} = \textbf{y}$$</p>
+<p>Left-multiplying both sides by $\textbf{X}^T$:</p>
+<p>$$\textbf{X}^T \textbf{X}  \hat{\boldsymbol\theta} + \textbf{X}^T \textbf{e} = \textbf{X}^T \textbf{y}$$</p>
+<p>Since $\textbf{e}$ is perpendicular to the columns of $\textbf{X}$, $\textbf{X}^T \textbf{e}$ is a column vector of $0$'s. Thus, we arrive at the Normal Equation:</p>
+<p>$$\textbf{X}^T \textbf{X}  \hat{\boldsymbol\theta} = \textbf{X}^T \textbf{y}$$</p>
+<p>From here, we can easily solve for $\hat{\boldsymbol\theta}$ by left-multiplying both sides by $(\textbf{X}^T \textbf{X})^{-1}$:</p>
+<p>$$\hat{\boldsymbol\theta} = (\textbf{X}^T \textbf{X})^{-1} \textbf{X}^T \textbf{y}$$</p>
+<p>Note: we can get this same solution by minimizing with vector calculus, but in the case of least squares loss, vector calculus isn't necessary. For other loss functions, we will need to use vector calculus to get the analytic solution.</p>
 
 </div>
 </div>
@@ -517,15 +532,16 @@ $$\hat{\boldsymbol\theta} = (\textbf{X}^T \textbf{X})^{-1} \textbf{X}^T \textbf{
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$
+<p>$$
 \textbf{y} = \begin{bmatrix} 2 \\ 1 \\ -2  \end{bmatrix} \qquad \textbf{X} = \begin{bmatrix} 1 &amp; 3 \\ 1 &amp; 0 \\ 1 &amp; -1 \end{bmatrix}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$
+<p>$$
 \begin{align}
 \hat{\boldsymbol\theta} 
 &amp;= 
@@ -550,7 +566,8 @@ $$
 &amp;=
 \begin{bmatrix} - \frac{3}{13} \\ \frac{11}{13} \end{bmatrix}
 \end{align}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
@@ -627,7 +644,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also observe this from minimizing the loss function:</p>
-$$ 
+<p>$$ 
 \begin{aligned}
 L(\boldsymbol\theta, \textbf{d}, \textbf{y})
 &amp;= \left \Vert  \qquad   
@@ -640,19 +657,24 @@ L(\boldsymbol\theta, \textbf{d}, \textbf{y})
 \end{bmatrix}
 \qquad \right \Vert ^2
 \end{aligned}
-$$<p>Our possible solutions follow the form $\theta_0 \textbf{1} + \theta_1 \textbf{x} + \theta_2 \textbf{z}$.</p>
+$$</p>
+<p>Our possible solutions follow the form $\theta_0 \textbf{1} + \theta_1 \textbf{x} + \theta_2 \textbf{z}$.</p>
 <p>Since $\textbf{z} = \textbf{1} + \textbf{x}$, regardless of $\theta_0$, $\theta_1$, and $\theta_2$, the possible values can be rewritten as:</p>
-$$
+<p>$$
 \begin{aligned}
 \theta_0 \textbf{1} + \theta_1 \textbf{x} + \theta_2 (\textbf{1} + \textbf{x})
 &amp;= 
 (\theta_0 + \theta_2) \textbf{1} + (\theta_1 + \theta_2) \textbf{x} \\
 \end{aligned}
-$$<p>So adding $\textbf{z}$ does not change the problem at all. The only difference is, we can express this projection in multiple ways. Recall that we found the projection of $\textbf{y}$ onto the plane spanned by $\textbf{1}$ and $\textbf{x}$ to be:</p>
-$$ \begin{bmatrix} \textbf{1} &amp; \textbf{x} \end{bmatrix}  \begin{bmatrix} - \frac{3}{13} \\ \frac{11}{13} \end{bmatrix} = - \frac{3}{13} \textbf{1} + \frac{11}{13} \textbf{x}$$<p>However, with the introduction of $\textbf{z}$, we have more ways to express this same projection vector.</p>
+$$</p>
+<p>So adding $\textbf{z}$ does not change the problem at all. The only difference is, we can express this projection in multiple ways. Recall that we found the projection of $\textbf{y}$ onto the plane spanned by $\textbf{1}$ and $\textbf{x}$ to be:</p>
+<p>$$ \begin{bmatrix} \textbf{1} &amp; \textbf{x} \end{bmatrix}  \begin{bmatrix} - \frac{3}{13} \\ \frac{11}{13} \end{bmatrix} = - \frac{3}{13} \textbf{1} + \frac{11}{13} \textbf{x}$$</p>
+<p>However, with the introduction of $\textbf{z}$, we have more ways to express this same projection vector.</p>
 <p>Since $\textbf{1} = \textbf{z} - \textbf{x}$, $\hat{\textbf{y}}$ can also be expressed as:</p>
-$$ - \frac{3}{13} (\textbf{z} - \textbf{x}) + \frac{11}{13} \textbf{x} = - \frac{3}{13} \textbf{z} + \frac{14}{13} \textbf{x} $$<p>Since $\textbf{x} = \textbf{z} + \textbf{1}$, $\hat{\textbf{y}}$ can also be expressed as:</p>
-$$ - \frac{3}{13} \textbf{1} + \frac{11}{13} (\textbf{z} + \textbf{1}) = \frac{8}{13} \textbf{1} + \frac{11}{13} \textbf{z} $$<p>But all three expressions represent the same projection.</p>
+<p>$$ - \frac{3}{13} (\textbf{z} - \textbf{x}) + \frac{11}{13} \textbf{x} = - \frac{3}{13} \textbf{z} + \frac{14}{13} \textbf{x} $$</p>
+<p>Since $\textbf{x} = \textbf{z} + \textbf{1}$, $\hat{\textbf{y}}$ can also be expressed as:</p>
+<p>$$ - \frac{3}{13} \textbf{1} + \frac{11}{13} (\textbf{z} + \textbf{1}) = \frac{8}{13} \textbf{1} + \frac{11}{13} \textbf{z} $$</p>
+<p>But all three expressions represent the same projection.</p>
 <p>In conclusion, adding a linearly dependent column to $\textbf{X}$ does not change $Span(\textbf{X})$, and thus will not change the projection and solution to the least squares problem.</p>
 
 </div>

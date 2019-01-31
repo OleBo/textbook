@@ -21,6 +21,7 @@ from read_url_map import read_url_list
 
 OUTPUT_FILENAME = 'book.html'
 TEMP_FILENAME = 'book_temp.html'
+ERROR_FILENAME = 'stderr.log'
 
 RAW_START = '{% raw %}'
 RAW_END = '{% endraw %}'
@@ -121,19 +122,20 @@ def render_math(output_filename=OUTPUT_FILENAME):
     print('Done!')
 
 
-def fix_image_paths(output_filename=OUTPUT_FILENAME):
+def fix_image_paths(output_filename=OUTPUT_FILENAME,error_filename=ERROR_FILENAME):
     """
     Replaces absolute image URLs with links to localhost so that ebook-convert
     can locate them.
     """
-    check_call([
-        'sed', '-i', "",
-        "'s#/notebooks-images#http://localhost:4000/notebooks-images#g'",
-        output_filename
-    ])
+    with open(error_filename, 'w') as stderr:
+        check_call([
+            'gsed', '-i', "",
+            "'s#/notebooks-images#http://localhost:4000/notebooks-images#g'",
+            output_filename
+        ],stderr=stderr)
 
 
 if __name__ == '__main__':
     concat_pages()
     render_math()
-    fix_image_paths()
+    #fix_image_paths()

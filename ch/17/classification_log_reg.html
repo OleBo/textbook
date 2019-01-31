@@ -156,24 +156,27 @@ next_page: '/ch/17/classification_cost_justification.html'
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Using-Logistic-Regression">Using Logistic Regression<a class="anchor-link" href="#Using-Logistic-Regression">&#182;</a></h2><p>We have developed all the components of logistic regression. First, the logistic model used to predict probabilities:</p>
-$$
+<p>$$
 \begin{aligned}
 f_\hat{\boldsymbol{\theta}} (\textbf{x}) = \sigma(\hat{\boldsymbol{\theta}} \cdot \textbf{x})
 \end{aligned}
-$$<p>Then, the cross-entropy loss function:</p>
-$$
+$$</p>
+<p>Then, the cross-entropy loss function:</p>
+<p>$$
 \begin{aligned}
 L(\boldsymbol{\theta}, \textbf{X}, \textbf{y}) = &amp;= \frac{1}{n} \sum_i \left(- y_i \ln \sigma_i - (1 - y_i) \ln (1 - \sigma_i ) \right) \\
 \end{aligned}
-$$<p>Finally, the gradient of the cross-entropy loss for gradient descent:</p>
-$$
+$$</p>
+<p>Finally, the gradient of the cross-entropy loss for gradient descent:</p>
+<p>$$
 \begin{aligned}
 \nabla_{\boldsymbol{\theta}} L(\boldsymbol{\theta}, \textbf{X}, \textbf{y})
 &amp;= - \frac{1}{n} \sum_i \left(
     y_i - \sigma_i
 \right) \textbf{X}_i \\
 \end{aligned}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
