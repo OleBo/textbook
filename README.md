@@ -1,4 +1,4 @@
-[![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/OleBo/textbook/r/master)
+[![Binder](http://mybinder.org/badge_logo.svg)](http://mybinder.org/v2/gh/OleBo/textbook/master)
 # Principles and Techniques of Data Science
 
 **By [Sam Lau][sam], [Joey Gonzalez][joey], and [Deb Nolan][deb].**
