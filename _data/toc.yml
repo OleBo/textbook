@@ -12,7 +12,7 @@
 #   in the sidebar. All other values are ignored.
 
 - title: Data 100 Homepage
-  url: http://ds100.org/
+  url: /
   not_numbered: true
 - divider: true
 - title: Introduction

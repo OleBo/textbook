@@ -40,13 +40,13 @@ $(CHAPTERS): ## Converts a specific chapter's notebooks (e.g. make ch02)
 	python scripts/convert_notebooks_to_html_partial.py notebooks/$@/*.ipynb
 
 website:
-	jekyll build
+	bundle exec jekyll build
 
 build: ## Run build steps
 	make notebooks website pdf
 
 serve: build ## Run Jekyll to preview changes locally
-	jekyll serve
+	bundle exec jekyll serve
 
 
 clean: ## Removes generated files (Jekyll and notebook conversion output)

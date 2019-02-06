@@ -120,6 +120,10 @@ def convert_notebooks_to_html_partial(notebook_paths, url_map):
             notebook,
             resources=extract_output_config,
         )
+        
+        for relative_path, image_data in resources['outputs'].items():
+            print (relative_path)
+            html=html.replace(relative_path, '../..'+relative_path)
 
         if outfile_path not in url_map:
             print(
