@@ -77,6 +77,6 @@ endif
 	make ping_binder
 
 ping_binder: ## Force-updates BinderHub image
-	curl -s https://mybinder.org/build/gh/DS-100/textbook/master |\
+	curl -s https://mybinder.org/build/gh/OleBo/textbook/master |\
 		grep -E '${BINDER_REGEXP}' |\
 		sed -E 's/${BINDER_REGEXP}/\1/' &
