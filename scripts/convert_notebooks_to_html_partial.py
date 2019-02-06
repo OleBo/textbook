@@ -72,12 +72,12 @@ NOTEBOOK_IMAGE_DIR = 'notebooks-images'
 # The prefix for the interact button links. The path format string gets filled
 # in with the notebook as well as any datasets the notebook requires.
 INTERACT_LINK = (
-    'http://data100.datahub.berkeley.edu/user-redirect/git-pull'
-    '?repo=https://github.com/DS-100/textbook&{paths}'
+    'https://mybinder.org/v2/gh/OleBo/textbook/master'
+    '?{paths}'
 )
 
 # The prefix for each notebook + its dependencies
-PATH_PREFIX = 'subPath={}'
+PATH_PREFIX = 'filepath={}'
 
 # YAML file containing textbook table of contents
 TOC_PATH = '_data/toc.yml'
