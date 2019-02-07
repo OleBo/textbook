@@ -77,7 +77,7 @@ def concat_pages(output_filename=OUTPUT_FILENAME):
     Takes invidividual pages from the table of contents and concatenates them
     into a single, long HTML page.
     """
-    files_to_read = list(map(_replace_url, read_url_list()))[:5]
+    files_to_read = list(map(_replace_url, read_url_list()))
 
     print('Concatenating book pages...')
     with open(output_filename, 'w') as f:
@@ -127,10 +127,15 @@ def fix_image_paths(output_filename=OUTPUT_FILENAME,error_filename=ERROR_FILENAM
     Replaces absolute image URLs with links to localhost so that ebook-convert
     can locate them.
     """
+    print([
+            'gsed', '-i', "",
+            "'s#/notebooks-images#http://localhost:4000/textbook/notebooks-images#g'",
+            output_filename
+        ])
     with open(error_filename, 'w') as stderr:
         check_call([
-            'gsed', '-i', "",
-            "'s#/notebooks-images#http://localhost:4000/notebooks-images#g'",
+            'gsed', '-i', 
+            's#../../notebooks-images#http://localhost:4000/textbook/notebooks-images#g',
             output_filename
         ],stderr=stderr)
 
@@ -138,4 +143,4 @@ def fix_image_paths(output_filename=OUTPUT_FILENAME,error_filename=ERROR_FILENAM
 if __name__ == '__main__':
     concat_pages()
     render_math()
-    #fix_image_paths()
+    fix_image_paths()
