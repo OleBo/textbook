@@ -6,7 +6,10 @@ next_page: '/about_this_book.html'
 
 # Principles and Techniques of Data Science
 
-**By [Sam Lau][sam], [Joey Gonzalez][joey], and [Deb Nolan][deb].**
+**By [Sam Lau][sam], [Joey Gonzalez][joey], and [Deb Nolan][deb],**
+
+**edited and translated by [Olaf Bochmann][olaf].**
+
 
 This is the textbook for
 [Data 100, the Principles and Techniques of Data Science course at UC Berkeley][ds100].
@@ -23,8 +26,9 @@ To set up the textbook for local development, see the [the setup guide][setup].
 [sam]: http://www.samlau.me/
 [joey]: https://people.eecs.berkeley.edu/~jegonzal/
 [deb]: https://www.stat.berkeley.edu/~nolan/
+[olaf]: https://bochmann.complexlab.org
 [data8]: http://data8.org/
 [ds100]: http://www.ds100.org/
-[setup]: https://github.com/DS-100/textbook/blob/master/SETUP.md
-[about]: /about_this_book
+[setup]: https://github.com/olebo/textbook/blob/master/SETUP.md
+[about]: /textbook/about_this_book
 

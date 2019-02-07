@@ -127,11 +127,6 @@ def fix_image_paths(output_filename=OUTPUT_FILENAME,error_filename=ERROR_FILENAM
     Replaces absolute image URLs with links to localhost so that ebook-convert
     can locate them.
     """
-    print([
-            'gsed', '-i', "",
-            "'s#/notebooks-images#http://localhost:4000/textbook/notebooks-images#g'",
-            output_filename
-        ])
     with open(error_filename, 'w') as stderr:
         check_call([
             'gsed', '-i', 
