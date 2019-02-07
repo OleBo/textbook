@@ -452,15 +452,14 @@ next_page: '/ch/06/viz_philosophy.html'
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see a near-perfect linear relationship between the logged values of mean distance and period. What does this mean? Since we believe there's a linear relationship between the logged values, we can derive:</p>
-<p>$$
+$$
 \begin{aligned}
 \log(period) &amp;= m \log(dist) + b \\
 period &amp;= e^{m \log(dist) + b} &amp; \text{Taking the exponent of both sides} \\
 period &amp;= e^b dist^m \\
 period &amp;= C \cdot dist^m
 \end{aligned}
-$$</p>
-<p>We replaced $ e^b $ with $ C $ in the last step to represent $ e^b $ as a constant. The algebraic manipulation above shows that when two variables have a polynomial relationship, the log of the two variables has a linear relationship. In fact, we can find the degree of the polynomial by examining the slope of the line. In this case, the slope is 1.5 which gives us Kepler's third law: $ period \propto dist^{1.5} $.</p>
+$$<p>We replaced $ e^b $ with $ C $ in the last step to represent $ e^b $ as a constant. The algebraic manipulation above shows that when two variables have a polynomial relationship, the log of the two variables has a linear relationship. In fact, we can find the degree of the polynomial by examining the slope of the line. In this case, the slope is 1.5 which gives us Kepler's third law: $ period \propto dist^{1.5} $.</p>
 <p>By a similar derivation we can also show that if the relationship between the $ \log(y) $ and $ x $ is linear, the two variables have an exponential relationship: $ y = a^x $.</p>
 <p>Thus, we can use the logarithm to reveal patterns in right-tailed data and common non-linear relationships between variables.</p>
 <p>Other common data transformations include the Box-Cox transformation and polynomial transforms.</p>

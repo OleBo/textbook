@@ -120,13 +120,11 @@ next_page: '/ch/12/prob_exp_var.html'
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Probability-Mass-Functions">Probability Mass Functions<a class="anchor-link" href="#Probability-Mass-Functions">&#182;</a></h3><p>The <strong>probability mass function (PMF)</strong> or the <strong>distribution</strong> of a random variable $X$ provides the probability that $X$ takes on each of its possible values. If we let $\mathbb{X}$ be the set of values that $X$ can take on and $x$ be a particular value in $\mathbb{X}$, the PMF of $X$ must satisfy the following rules:</p>
-<p>$$
+$$
 1) \sum_{x \in \mathbb{X}} P(X = x) = 1
-$$</p>
-<p>$$
+$$$$
 2) \text{ For all } x \in \mathbb{X}, 0 \leq P(X = x) \leq 1
-$$</p>
-<p>The first rule states that the probabilities for all possible values of $ X $ sum to $ 1 $.</p>
+$$<p>The first rule states that the probabilities for all possible values of $ X $ sum to $ 1 $.</p>
 <p>The second rule states that each individual probability for a given value of $ X $ must be between $ 0 $ and $ 1 $.</p>
 <p>Suppose we let $ X $ represent the result of one roll from a fair six-sided die. We know that $ X \in \{1, 2, 3, 4, 5, 6\} $ and that $ P(X = 1) = P(X = 2) = \ldots = P(X = 6) = \frac{1}{6} $. We can plot the PMF of $ X $ as a probability distribution:</p>
 
@@ -207,8 +205,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Joint-Distributions">Joint Distributions<a class="anchor-link" href="#Joint-Distributions">&#182;</a></h3><p>The notion of PMFs for single random variables extends naturally to joint distributions for multiple random variables. In particular, the <strong>joint distribution</strong> of two or more random variables yields the probability that these random variables simultaneously take on a specific set of values.</p>
 <p>For example, let the random variable $ X $ represent the number of heads in 10 coin flips, and let $ Y $ represent the number of tails in the same set of 10 coin flips. We can note that:</p>
-<p>$$P(X=0, Y=10) = P(X=10, Y=0) = (0.5)^{10}$$</p>
-<p>Meanwhile $P(X=6, Y=6) = 0$ since we cannot possibly have 6 heads and 6 tails in 10 coin flips.</p>
+$$P(X=0, Y=10) = P(X=10, Y=0) = (0.5)^{10}$$<p>Meanwhile $P(X=6, Y=6) = 0$ since we cannot possibly have 6 heads and 6 tails in 10 coin flips.</p>
 
 </div>
 </div>
@@ -216,21 +213,19 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Marginal-Distributions">Marginal Distributions<a class="anchor-link" href="#Marginal-Distributions">&#182;</a></h4><p>Sometimes, we start with the joint distribution for two random variables $X$ and $Y$ but want to find the distribution for $X$ alone. This distribution is called the <strong>marginal distribution</strong>. To find the probability that $X$ takes on a particular value, we must consider all possible values of $Y$ (denoted by $\mathbb{Y}$) that can simultaneously happen with $X$ and sum over all of these joint probabilities:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{y \in \mathbb{Y}} P(X=x, Y=y) &amp;= P(X=x)
 \end{aligned}
-$$</p>
-<p>We can prove this identity as follows:</p>
-<p>$$
+$$<p>We can prove this identity as follows:</p>
+$$
 \begin{aligned}
 \sum_{y \in \mathbb{Y}} P(X=x, Y=y) &amp;= \sum_{y \in \mathbb{Y}} P(X=x) \times P(Y=y \; \vert \; X=x)\\
 &amp;= P(X=x) \times \sum_{y \in \mathbb{Y}} P(Y=y \; \vert \; X=x)\\
 &amp;= P(X=x) \times 1 \\
 &amp;= P(X=x)
 \end{aligned}
-$$</p>
-<p>In the last line of this proof, we treated $Y \; \vert \; X = x$ as a random variable with some unknown PMF. This is important since we used the property that the probabilities in a PMF sum to $1$, which means that $\sum_{y\in \mathbb{Y}} P(Y = y \; \vert \; X = x) = 1$.</p>
+$$<p>In the last line of this proof, we treated $Y \; \vert \; X = x$ as a random variable with some unknown PMF. This is important since we used the property that the probabilities in a PMF sum to $1$, which means that $\sum_{y\in \mathbb{Y}} P(Y = y \; \vert \; X = x) = 1$.</p>
 
 </div>
 </div>
@@ -402,7 +397,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also find the marginal distribution of $Y$ from the table.</p>
-<p>$$
+$$
 \begin{aligned}
 P(Y = 50) &amp;= P(Y = 50, X = 50) + P(Y = 50, X = 51) + P(Y = 50, X = 52) \\
 &amp;= \frac{2}{12} + \frac{2}{12} + \frac{2}{12} \\
@@ -410,8 +405,7 @@ P(Y = 50) &amp;= P(Y = 50, X = 50) + P(Y = 50, X = 51) + P(Y = 50, X = 52) \\
 P(Y = 51) &amp;= \frac{2}{12} + 0 + \frac{1}{12} = \frac{1}{4} \\
 P(Y = 52) &amp;= \frac{2}{12} + \frac{1}{12} + 0 = \frac{1}{4}
 \end{aligned}
-$$</p>
-<p>Notice that we summed each column of the joint distribution table above. One can imagine computing the sum of each column and writing the result in the margin below the table; this is the origin of the term marginal distribution.</p>
+$$<p>Notice that we summed each column of the joint distribution table above. One can imagine computing the sum of each column and writing the result in the margin below the table; this is the origin of the term marginal distribution.</p>
 <p>You should also notice that $ X $ and $ Y $ are not independent when we sample without replacement. If $ X = 52 $, for example, $ Y \neq 52 $. Nonetheless, $X$ and $Y$ still have the same marginal distribution.</p>
 
 </div>

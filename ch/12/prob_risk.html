@@ -54,12 +54,11 @@ next_page: '/ch/13/linear_models.html'
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h3><p>A model's risk is the expected value of the model's loss on randomly chosen points from the population.</p>
 <p>In this scenario, the population consists of all tip percentages our waiter receives during his employment, including future tips. We use the random variable $ X $ to represent a randomly chosen tip percent from the population, and the usual variable $ \theta $ to represent the constant model's prediction. Using this notation, the risk $ R(\theta) $ of our model is:</p>
-<p>$$
+$$
 \begin{aligned}
 R(\theta) = \mathbb{E}\left[(X - \theta)^2\right]
 \end{aligned}
-$$</p>
-<p>In the expression above, we use the MSE loss which gives the inner $ (X - \theta)^2 $ in the expectation. The risk is a function of $ \theta $ since we can change $ \theta $ as we please.</p>
+$$<p>In the expression above, we use the MSE loss which gives the inner $ (X - \theta)^2 $ in the expectation. The risk is a function of $ \theta $ since we can change $ \theta $ as we please.</p>
 <p>Unlike loss alone, using risk allows us to reason about the model's accuracy on the population in general. If our model achieves a low risk, our model will make accurate predictions on points from the population in the long term. On the other hand, if our model has a high risk it will in general perform poorly on data from the population.</p>
 <p>Naturally, we would like to choose the value of $ \theta $ that makes the model's risk as low as possible. We use the variable $ \theta^* $ to represent the risk-minimizing value of $ \theta $, or the optimal model parameter for the population. To clarify, $ \theta^* $ represents the model parameter that minimizes risk while $ \hat{\theta} $ represents the parameter that minimizes dataset-specific loss.</p>
 
@@ -69,7 +68,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Minimizing-the-Risk">Minimizing the Risk<a class="anchor-link" href="#Minimizing-the-Risk">&#182;</a></h3><p>Let's find the value of $ \theta $ that minimizes the risk. Previously, we used calculus to perform this minimization. This time, we will use a mathematical trick that produces a meaningful final expression. We replace $X - \theta$ with $X - \mathbb{E}[X] + \mathbb{E}[X] - \theta$ and expand:</p>
-<p>$$
+$$
 \begin{aligned}
 R(\theta) &amp;=  \mathbb{E}[(X - \theta)^2] \\
 &amp;= \mathbb{E}\left[
@@ -82,52 +81,45 @@ R(\theta) &amp;=  \mathbb{E}[(X - \theta)^2] \\
   (X - \mathbb{E}[X])^2 + 2(X - \mathbb{E}[X])(\mathbb{E}[X] - \theta) + (\mathbb{E}[X]- \theta)^2
 \right] \\
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, we apply the linearity of expectation and simplify. We use the identity $ \mathbb{E}\left[ (X - \mathbb{E}[X]) \right] = 0 $ which is roughly equivalent to stating that $ \mathbb{E}[X] $ lies at the center of the distribution of $ X $.</p>
-<p>$$
+$$
 \begin{aligned}
 R(\theta) &amp;=
-  \mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]</p>
-<ul>
-<li>\mathbb{E}\left[ 2(X - \mathbb{E}[X])(\mathbb{E}[X] - \theta) \right]</li>
-<li>\mathbb{E}\left[ (\mathbb{E}[X]- \theta)^2 \right] \
+  \mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]
+  + \mathbb{E}\left[ 2(X - \mathbb{E}[X])(\mathbb{E}[X] - \theta) \right]
+  + \mathbb{E}\left[ (\mathbb{E}[X]- \theta)^2 \right] \\
 &amp;=
-\mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]</li>
-<li>2 (\mathbb{E}[X] - \theta) \underbrace{ \mathbb{E}\left[ (X - \mathbb{E}[X]) \right]}_{= 0}</li>
-<li>(\mathbb{E}[X]- \theta)^2 \
+  \mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]
+  + 2 (\mathbb{E}[X] - \theta) \underbrace{ \mathbb{E}\left[ (X - \mathbb{E}[X]) \right]}_{= 0}
+  + (\mathbb{E}[X]- \theta)^2 \\
 &amp;=
-\mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]</li>
-<li>0</li>
-<li>(\mathbb{E}[X]- \theta)^2 \
+  \mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]
+  + 0
+  + (\mathbb{E}[X]- \theta)^2 \\
 R(\theta) &amp;=
-\mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]</li>
-<li>(\mathbb{E}[X]- \theta)^2 \
+  \mathbb{E}\left[ (X - \mathbb{E}[X])^2 \right]
+  + (\mathbb{E}[X]- \theta)^2 \\
 \end{aligned}
-$$</li>
-</ul>
-
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice that the first term in the expression above is the <strong>variance</strong> of $ X $, $ Var(X) $, which has no dependence on $ \theta $. The second term gives a measure of how close $ \theta $ is to $ \mathbb{E}[X] $. Because of this, the second term is called the <strong>bias</strong> of our model. In other words, the model's risk is the bias of the model plus the variance of the quantity we are trying to predict:</p>
-<p>$$
+$$
 \begin{aligned}
 R(\theta) &amp;=
-  \underbrace{(\mathbb{E}[X]- \theta)^2}_\text{bias}</p>
-<ul>
-<li>\underbrace{Var(X)}_\text{variance}
+  \underbrace{(\mathbb{E}[X]- \theta)^2}_\text{bias}
+  + \underbrace{Var(X)}_\text{variance}
 \end{aligned}
-$$</li>
-</ul>
-<p>Thus, the risk is minimized when our model has no bias: $ \theta^* =  \mathbb{E}[X] $ .</p>
+$$<p>Thus, the risk is minimized when our model has no bias: $ \theta^* =  \mathbb{E}[X] $ .</p>
 
 </div>
 </div>
@@ -142,12 +134,11 @@ $$</li>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Empirical-Risk-Minimization">Empirical Risk Minimization<a class="anchor-link" href="#Empirical-Risk-Minimization">&#182;</a></h3><p>From the above analysis, we would like to set $ \theta = \mathbb{E}[X] $. Unfortunately, calculating $ \mathbb{E}[X] $ requires complete knowledge of the population. To understand why, examine the expression for $ \mathbb{E}[X] $:</p>
-<p>$$
+$$
 \begin{aligned}
 \mathbb{E}[X] = \sum_{x \in \mathbb{X}} x \cdot P(X = x)
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
@@ -162,13 +153,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can tackle this issue by remembering that the distribution of values in a large random sample will be close to the distribution of values in the population. If this is true about our sample, we can treat the sample as though it were the population itself.</p>
 <p>Suppose we draw points at random from the sample instead of the population. Since there are $ n $ total points in the sample $ \mathbf{x} = \{ x_1, x_2, \ldots, x_n \} $, each point $ x_i $ has probability $ \frac{1}{n} $ of appearing. Now we can create an approximation for $ \mathbb{E}[X] $:</p>
-<p>$$
+$$
 \begin{aligned}
 \mathbb{E}[X]
 &amp;\approx \frac{1}{n} \sum_{i=1}^n x_i = \text{mean}({\mathbf{x}})
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
@@ -196,18 +186,16 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>Using the mathematical tools developed in this chapter, we have developed an understanding of our model's performance on the population. A model makes accurate predictions if it minimizes <strong>statistical risk</strong>. We found that the globally optimal model parameter is:</p>
-<p>$$
+$$
 \begin{aligned}
 \theta^* =  \mathbb{E}[X]
 \end{aligned}
-$$</p>
-<p>Since we cannot readily compute this, we found the model parameter that minimizes the <strong>empirical risk</strong>.</p>
-<p>$$
+$$<p>Since we cannot readily compute this, we found the model parameter that minimizes the <strong>empirical risk</strong>.</p>
+$$
 \begin{aligned}
 \hat \theta = \text{mean}(\mathbf x)
 \end{aligned}
-$$</p>
-<p>If the training data are randomly sampled from the population, it is likely that $ \hat{\theta} \approx \theta^* $. Thus, a constant model trained on a large random sample from the population will likely perform well on the population as well.</p>
+$$<p>If the training data are randomly sampled from the population, it is likely that $ \hat{\theta} \approx \theta^* $. Thus, a constant model trained on a large random sample from the population will likely perform well on the population as well.</p>
 
 </div>
 </div>

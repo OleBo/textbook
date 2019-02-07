@@ -390,10 +390,9 @@ next_page: '/ch/13/linear_projection.html'
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It seems possible that we can get a more accurate model if we could take both horsepower and model year into account when making predictions about the MPG. In fact, perhaps the best model takes into account all the numerical variables in our dataset. We can extend our univariate linear regression to allow prediction based on any number of attributes.</p>
 <p>We state the following model:</p>
-<p>$$
+$$
 f_\boldsymbol\theta (\textbf{x}) = \theta_0 + \theta_1 x_1 + \ldots + \theta_p x_p
-$$</p>
-<p>Where $ \textbf{x} $ now represents a vector containing $ p $ attributes of a single car. The model above says, "Take multiple attributes of a car, multiply them by some weights, and add them together to make a prediction for MPG."</p>
+$$<p>Where $ \textbf{x} $ now represents a vector containing $ p $ attributes of a single car. The model above says, "Take multiple attributes of a car, multiply them by some weights, and add them together to make a prediction for MPG."</p>
 <p>For example, if we're making a prediction on the first car in our dataset using the horsepower, weight, and model year columns, the vector $ \textbf{x} $ looks like:</p>
 
 </div>
@@ -549,7 +548,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, observe what happens to the formula for our model:</p>
-<p>$$
+$$
 \begin{aligned}
 f_\boldsymbol\theta (\textbf{x})
 &amp;= \theta_0 + \theta_1 x_1 + \ldots + \theta_p x_p \\
@@ -557,8 +556,7 @@ f_\boldsymbol\theta (\textbf{x})
 &amp;= \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_p x_p \\
 f_\boldsymbol\theta (\textbf{x}) &amp;= \boldsymbol\theta \cdot \textbf{x}
 \end{aligned}
-$$</p>
-<p>Where $ \boldsymbol\theta \cdot \textbf{x} $ is the vector dot product of $ \boldsymbol\theta $ and $ \textbf{x} $. Vector and matrix notation were designed to succinctly write linear combinations and is thus well-suited for our linear models. However, you will have to remember from now on that $ \boldsymbol\theta \cdot \textbf{x} $ is a vector-vector dot product. When in doubt, you can always expand the dot product into simple multiplications and additions.</p>
+$$<p>Where $ \boldsymbol\theta \cdot \textbf{x} $ is the vector dot product of $ \boldsymbol\theta $ and $ \textbf{x} $. Vector and matrix notation were designed to succinctly write linear combinations and is thus well-suited for our linear models. However, you will have to remember from now on that $ \boldsymbol\theta \cdot \textbf{x} $ is a vector-vector dot product. When in doubt, you can always expand the dot product into simple multiplications and additions.</p>
 <p>Now, we define the matrix $  \textbf{X} $ as the matrix containing every car model as a row and a first column of biases. For example, here are the first five rows of $  \textbf{X} $:</p>
 
 </div>
@@ -675,39 +673,36 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="MSE-Loss-and-its-Gradient">MSE Loss and its Gradient<a class="anchor-link" href="#MSE-Loss-and-its-Gradient">&#182;</a></h2><p>The mean squared error loss function takes in a vector of weights $ \boldsymbol\theta $, a matrix of inputs $  \textbf{X} $, and a vector of observed MPGs $ \textbf{y} $:</p>
-<p>$$
+$$
 \begin{aligned}
 L(\boldsymbol\theta, \textbf{X}, \textbf{y})
 &amp;= \frac{1}{n} \sum_{i}(y_i - f_\boldsymbol\theta (\textbf{X}_i))^2\\
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We've previously derived the gradient of the MSE loss with respect to $ \boldsymbol\theta $:</p>
-<p>$$
+$$
 \begin{aligned}
 \nabla_{\boldsymbol\theta} L(\boldsymbol\theta, \textbf{X}, \textbf{y})
 &amp;= -\frac{2}{n} \sum_{i}(y_i - f_\boldsymbol\theta (\textbf{X}_i))(\nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{X}_i))\\
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We know that:</p>
-<p>$$
+$$
 \begin{aligned}
 f_\boldsymbol\theta (\textbf{x}) &amp;= \boldsymbol\theta \cdot \textbf{x} \\
 \end{aligned}
-$$</p>
-<p>Let's now compute $ \nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{x}) $. The result is surprisingly simple because $ \boldsymbol\theta \cdot \textbf{x} = \theta_0 x_0 + \ldots + \theta_p x_p $ and thus $ \frac{\partial}{\partial \theta_0}(\boldsymbol\theta \cdot \textbf{x}) = x_0 $, $ \frac{\partial}{\partial \theta_1}(\boldsymbol\theta \cdot \textbf{x}) = x_1 $, and so on.</p>
-<p>$$
+$$<p>Let's now compute $ \nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{x}) $. The result is surprisingly simple because $ \boldsymbol\theta \cdot \textbf{x} = \theta_0 x_0 + \ldots + \theta_p x_p $ and thus $ \frac{\partial}{\partial \theta_0}(\boldsymbol\theta \cdot \textbf{x}) = x_0 $, $ \frac{\partial}{\partial \theta_1}(\boldsymbol\theta \cdot \textbf{x}) = x_1 $, and so on.</p>
+$$
 \begin{aligned}
 \nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{x})
 &amp;= \nabla_{\boldsymbol\theta} [ \boldsymbol\theta \cdot \textbf{x} ] \\
@@ -725,22 +720,20 @@ $$</p>
    \end{bmatrix} \\
 \nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{x}) &amp;= \textbf{x}
 \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, we plug this result back into our gradient calculations:</p>
-<p>$$
+$$
 \begin{aligned}
 \nabla_{\boldsymbol\theta} L(\boldsymbol\theta, \textbf{X}, \textbf{y})
 &amp;= -\frac{2}{n} \sum_{i}(y_i - f_\boldsymbol\theta (\textbf{X}_i))(\nabla_{\boldsymbol\theta} f_\boldsymbol\theta (\textbf{X}_i))\\
 &amp;= -\frac{2}{n} \sum_{i}(y_i - \boldsymbol\theta \cdot \textbf{X}_i)(\textbf{X}_i)\\
 \end{aligned}
-$$</p>
-<p>Remember that since $ y_i - \boldsymbol\theta \cdot \textbf{X}_i $ is a scalar and $ \textbf{X}_i $ is a $ p $-dimensional vector, the gradient $ \nabla_{\boldsymbol\theta} L(\boldsymbol\theta, \textbf{X}, \textbf{y}) $ is a $ p $-dimensional vector.</p>
+$$<p>Remember that since $ y_i - \boldsymbol\theta \cdot \textbf{X}_i $ is a scalar and $ \textbf{X}_i $ is a $ p $-dimensional vector, the gradient $ \nabla_{\boldsymbol\theta} L(\boldsymbol\theta, \textbf{X}, \textbf{y}) $ is a $ p $-dimensional vector.</p>
 <p>We saw this same type of result when we computed the gradient for univariate linear regression and found that it was 2-dimensional since $ \boldsymbol\theta $ was 2-dimensional.</p>
 
 </div>
@@ -1222,12 +1215,11 @@ Wall time: 9.22 ms
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Using-All-the-Data">Using All the Data<a class="anchor-link" href="#Using-All-the-Data">&#182;</a></h2><p>Notice that in our example thus far, our $  \textbf{X} $ matrix has four columns: one column of all ones, the horsepower, the weight, and the model year. However, model allows us to handle an arbitrary number of columns:</p>
-<p>$$
+$$
 \begin{aligned}
 f_\boldsymbol\theta (\textbf{x}) &amp;= \boldsymbol\theta \cdot \textbf{x}
 \end{aligned}
-$$</p>
-<p>As we include more columns into our data matrix, we extend $ \boldsymbol\theta $ so that it has one parameter for each column in $  \textbf{X} $. Instead of only selecting three numerical columns for prediction, why not use all seven of them?</p>
+$$<p>As we include more columns into our data matrix, we extend $ \boldsymbol\theta $ so that it has one parameter for each column in $  \textbf{X} $. Instead of only selecting three numerical columns for prediction, why not use all seven of them?</p>
 
 </div>
 </div>
