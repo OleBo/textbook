@@ -71,8 +71,3 @@ We will return to this question after discussing probability sampling methods
 to compare the two approaches.
 
 [^1]: https://www.qualtrics.com/blog/the-1936-election-a-polling-catastrophe/
-
-
-```python
-
-```

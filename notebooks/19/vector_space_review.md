@@ -133,8 +133,3 @@ Likewise, to project one vector $\vec{x}$ onto any vector space spanned by some 
 
 <img src="../../notebooks-images/vector_space_review__proj2d.png" width="500" />
 
-
-
-```python
-
-```

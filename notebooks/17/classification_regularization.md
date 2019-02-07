@@ -195,8 +195,3 @@ accuracy_score(y_test, logreg_l1.predict(X_test_feats))
     0.9864864864864865
 
 
-
-
-```python
-
-```
